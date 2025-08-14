@@ -1,0 +1,7 @@
+<h1>Add a new movie to <%= @list.name %></h1>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment, placeholder: "Enter a comment about this movie" %>
+  <%= f.association :movie, collection: Movie.all.order(:title) %>
+  <%= f.submit "Add movie", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Back to list", list_path(@list) %>

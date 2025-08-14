@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h1>My Lists</h1>
+  <%= link_to "Create a new list", new_list_path %>
+
+<div class="card-list">
+  <% @lists.each do |list| %>
+    <div class="card">
+      <%= link_to list_path(list) do %>
+        <div class="card-image" style="background-image: url('<%= list.image_url %>')"></div>
+        <div class="card-body">
+          <h2><%= list.name %></h2>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
